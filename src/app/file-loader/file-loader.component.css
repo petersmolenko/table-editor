@@ -1,0 +1,23 @@
+:host {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fl__container {
+  display: flex;
+  flex-flow: column wrap;
+}
+.fl__desc {
+  margin: 0;
+  /* text-align: center; */
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+}
+.fl__controls {
+  display: flex;
+  justify-content: space-between;
+}
+.fl__btn:first-child {
+  margin-right: 0.5rem;
+}

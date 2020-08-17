@@ -1,0 +1,66 @@
+<div class="table__controls" *ngIf="hasData">
+  <h3 class="table__header">Table</h3>
+  <button mat-raised-button class="table__btn" (click)="onNewTableBtnClick()">
+    New table
+  </button>
+</div>
+<div class="table__container" *ngIf="hasData">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="table__main mat-elevation-z8"
+    cdkDropList
+    (cdkDropListDropped)="onListDrop($event)"
+    [cdkDropListData]="dataSource.data"
+  >
+    <ng-container [matColumnDef]="header" *ngFor="let header of headers">
+      <th mat-header-cell *matHeaderCellDef>
+        <div *ngIf="header !== '_control_'">{{ header }}</div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="header !== '_control_'">
+          <div *ngIf="headerToKey[header] === 'languages'">
+            <mat-chip-list>
+              <mat-chip *ngFor="let lang of element[headerToKey[header]]">{{
+                lang
+              }}</mat-chip>
+            </mat-chip-list>
+          </div>
+          <div *ngIf="headerToKey[header] !== 'languages'">
+            {{ element[headerToKey[header]] }}
+          </div>
+        </div>
+        <div *ngIf="header === '_control_'">
+          <button
+            mat-raised-button
+            (click)="openDialog(element)"
+            class="tbl__record-btn"
+          >
+            Change
+          </button>
+          <button
+            mat-raised-button
+            (click)="delRecord(element.id)"
+            class="tbl__record-btn"
+          >
+            Remove
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="headers; sticky: true"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: headers"
+      cdkDrag
+      style="border: none;"
+    ></tr>
+  </table>
+</div>
+<div class="dataNo" *ngIf="!hasData">
+  <div class="dataNo__icon">
+    <mat-icon class="dataNo__icon-inner">cloud_off</mat-icon>
+  </div>
+  <div class="dataNo__text">No data available</div>
+</div>

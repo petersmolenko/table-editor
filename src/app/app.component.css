@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  height: 100vh;
+  flex-flow: column nowrap;
+}
+
+.header__icon {
+  margin-right: 0.5rem;
+}
+
+.header__title {
+  letter-spacing: 0.2rem;
+  font-weight: bold;
+  outline: none;
+}
+.header__title:hover {
+  cursor: pointer;
+}
+
+.header__container {
+  display: flex;
+  justify-content: center;
+}

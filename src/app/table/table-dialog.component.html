@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>ID {{ data.id }}</h1>
+<div class="dtbl__inputs-container">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Surname</mat-label>
+    <input matInput [(ngModel)]="data.surname" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Languages</mat-label>
+    <input matInput [(ngModel)]="data.languages" />
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions class="dtbl__footer">
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+    Save
+  </button>
+</div>

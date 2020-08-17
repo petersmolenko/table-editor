@@ -1,0 +1,25 @@
+<div class="fl__container">
+  <h3 class="fl__desc">Select source file:</h3>
+  <mat-form-field appearance="standard">
+    <mat-label>File</mat-label>
+    <ngx-mat-file-input
+      class="form-control"
+      #uploads
+      (change)="onChange(uploads.value.files)"
+    ></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+  </mat-form-field>
+  <div class="fl__controls">
+    <button mat-stroked-button (click)="onShowBtnClick()" class="fl__btn">
+      Show table
+    </button>
+    <button
+      mat-raised-button
+      (click)="onCreateBtnClick()"
+      class="fl__btn"
+      *ngIf="hasData"
+    >
+      Create table
+    </button>
+  </div>
+</div>
